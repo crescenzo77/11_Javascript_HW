@@ -8,7 +8,7 @@ console.log(tableData);
 
 // select tbody HTML element
 
-var tbody = d3.select("tbody");
+let tbody = d3.select("tbody");
 
 // send data from data.js to console.log
 
@@ -22,20 +22,20 @@ data.forEach(function(ufoSighting) {
 
   // append one table row `tr` for each ufoSighting object
 
-  var row = tbody.append("tr");
+  let row = tbody.append("tr");
   Object.entries(ufoSighting).forEach(function([key, value]) {
     console.log(key, value);
 
     // append a cell to the row for each value in the ufoSighting object
 
-    var cell = tbody.append("td");
+    let cell = tbody.append("td");
     cell.text(value);
   });
 });
 
 // reference to button with id set to `filter-btn`
 
- var submit = d3.select("#filter-btn");
+ let submit = d3.select("#filter-btn");
 
  // use `on` function to trigger event on button click 
 
@@ -47,19 +47,19 @@ data.forEach(function(ufoSighting) {
 
    // create variables for user input
 
-   var inputElement = d3.select("#datetime");
-   var inputValue = inputElement.property("value");
+   let inputElement = d3.select("#datetime");
+   let inputValue = inputElement.property("value");
 
    // filter data based on user input
 
-   var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+   let filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
 
    // same as above, except values filtered by data
 
    filteredData.forEach((dateData) => {
-     var row = tbody.append("tr");
+     let row = tbody.append("tr");
      Object.entries(dateData).forEach(([key, value]) => {
-       var cell = tbody.append("td");
+       let cell = tbody.append("td");
        cell.text(value);
      });
    });
